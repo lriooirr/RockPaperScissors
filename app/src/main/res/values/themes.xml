@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.AppStarting" parent="Theme.SplashScreen">
+        <item name="postSplashScreenTheme">@style/Theme.RockPaperScissors</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>
+    </style>
+
+    <style name="Theme.RockPaperScissors" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
