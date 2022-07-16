@@ -20,6 +20,7 @@ object Dep {
         object Compose {
             private const val COMPOSE_VERSION = "1.2.0-rc03"
             private const val ACTIVITY_VERSION = "1.5.0"
+            private const val NAVIGATION_VERSION = "2.5.0"
 
             const val ui = "androidx.compose.ui:ui:$COMPOSE_VERSION"
             const val uiTooling = "androidx.compose.ui:ui-tooling:$COMPOSE_VERSION"
@@ -30,6 +31,7 @@ object Dep {
             const val activity = "androidx.activity:activity-compose:$ACTIVITY_VERSION"
             const val animation = "androidx.compose.animation:animation:$COMPOSE_VERSION"
             const val foundation = "androidx.compose.foundation:foundation:$COMPOSE_VERSION"
+            const val navigation = "androidx.navigation:navigation-compose:$NAVIGATION_VERSION"
         }
     }
 

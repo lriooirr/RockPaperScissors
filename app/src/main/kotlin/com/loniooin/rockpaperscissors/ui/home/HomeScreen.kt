@@ -1,6 +1,6 @@
 package com.loniooin.rockpaperscissors.ui.home
 
-import KnowmoreView
+import KnowMoreView
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
@@ -13,74 +13,60 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.loniooin.rockpaperscissors.ui.theme.AppTheme
-import com.loniooin.rockpaperscissors.ui.theme.black
 import com.loniooin.rockpaperscissors.ui.theme.williams
 import com.loniooin.rockpaperscissors.ui.theme.williamsblue
 
-
 val items = listOf(
     Item(
-        "经典的随机抽取",
-        "Random Sample",
-        0
+        code = 0,
+        name = "经典的随机抽取",
+        description = "Random Sample"
     ),
     Item(
-        "石头剪刀布",
-        "Paper Scissors Stone",
-        1
+        code = 1,
+        name = "石头剪刀布",
+        description = "Paper Scissors Stone"
     ),
     Item(
-        "掷骰子",
-        "Roll The Dice",
-        2
+        code = 2,
+        name = "掷骰子",
+        description = "Roll The Dice"
     )
 )
 
 
 @Composable
 @Preview
-fun HomeView() {
-    var shouldShowOnboarding by remember { mutableStateOf(true) }
+fun HomeScreen() {
+    var shouldShowOnBoarding by remember { mutableStateOf(true) }
     AppTheme {
-        if (shouldShowOnboarding) {
-            Surface() {
+        if (shouldShowOnBoarding) {
+            Surface {
                 Column {
                     TopAppBar()
-                    LazyColumn(
-                        contentPadding = PaddingValues(4.dp)
-                    ) {
+                    LazyColumn(contentPadding = PaddingValues(4.dp)) {
                         items(items.size) {
-                            val item = items[it]
-                            Greeting(item = item) {
-                                when (item.code) {
-                                    0 -> {}
-                                    1 -> {}
-                                    2 -> {}
-                                }
-                            }
+                            Greeting(item = items[it]) {}
                         }
                     }
-                    Knowmore(onContinueClicked = { shouldShowOnboarding = false })
+                    KnowMore(onContinueClicked = { shouldShowOnBoarding = false })
                 }
             }
         } else {
-            KnowmoreView(onContinueClicked = { shouldShowOnboarding = false })
+            KnowMoreView(onContinueClicked = { shouldShowOnBoarding = true })
         }
     }
 }
 
 @Composable
 fun TopAppBar() {
-    TopAppBar(backgroundColor = williams) {
-        Text(
-            text = "      决断帮手RS",
-            color = black,
-            style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.ExtraBold)
-        )
-    }
+    TopAppBar(
+        title = {
+            Text(text = "决断帮手RS")
+        },
+        backgroundColor = williams
+    )
 }
-
-data class Item(val name: String, val description: String, val code: Int)
 
 @Composable
 private fun Greeting(item: Item, onContinueClicked: () -> Unit) {
@@ -126,7 +112,7 @@ private fun Greeting(item: Item, onContinueClicked: () -> Unit) {
 
 
 @Composable
-private fun Knowmore(onContinueClicked: () -> Unit) {
+private fun KnowMore(onContinueClicked: () -> Unit) {
     Card(
         backgroundColor = williams,
         modifier = Modifier
@@ -163,4 +149,4 @@ private fun Knowmore(onContinueClicked: () -> Unit) {
     }
 }
 
-
+data class Item(val code: Int, val name: String, val description: String)

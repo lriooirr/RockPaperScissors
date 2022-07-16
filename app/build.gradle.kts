@@ -42,6 +42,7 @@ dependencies {
     implementation(Dep.AndroidX.Compose.activity)
     implementation(Dep.AndroidX.Compose.animation)
     implementation(Dep.AndroidX.Compose.foundation)
+    implementation(Dep.AndroidX.Compose.navigation)
     implementation(Dep.Google.Accompanist.sysUiController)
     implementation(Dep.Google.Accompanist.placeholderMaterial)
 }
